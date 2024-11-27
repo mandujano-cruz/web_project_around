@@ -7,4 +7,4 @@ Tecnologías y técnicas utilizadas: Se elaboró la página con varias combinaci
 
 También se añadieron funcionalidades con ayuda de JavaScript en donde se visualiza un modal en el cual se puede interactuar para editar el perfil del usuario cambiando el nombre y algo acerca del mismo.
 
-Para consultar la página web, ingresa al siguiente enlace: 
+Para consultar la página web, ingresa al siguiente enlace: https://mandujano-cruz.github.io/web_project_around/
