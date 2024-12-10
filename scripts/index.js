@@ -33,8 +33,7 @@ const initialCards = [
 
 const formElement = document.querySelector(".popup__container");
 const openPopupButtonEdit = document.querySelector(".profile__edit-button");
-const closePopupButton = document.querySelector(".popup__close");
-const popup = document.querySelector(".popup");
+const openPopupButtonAdd = document.querySelector(".profile__add-image");
 const popupEdit = document.querySelector(".popup_edit");
 const popupAdd = document.querySelector(".popup_add");
 const nameInput = document.querySelector(".popup__input_name");
@@ -42,6 +41,8 @@ const jobInput = document.querySelector(".popup__input_about");
 const nameProfile=document.querySelector(".profile__name");
 const jobProfile=document.querySelector(".profile__about-me");
 const sectionElements = document.querySelector(".elements");
+const closePopupButtonEdit = popupEdit.querySelector(".popup__close");
+const closePopupButtonAdd = popupAdd.querySelector(".popup__close");
 
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
@@ -55,12 +56,22 @@ function handleProfileFormSubmit(evt) {
     popupEdit.classList.add("popup_opened");
 }
 
-function closePopup() {
-    popup.classList.add("popup_opened");
+function closePopupEdit() {
+    popupEdit.classList.add("popup_opened");
+}
+
+function closePopupAdd() {
+    popupAdd.classList.add("popup_opened");
 }
 
 function openPopupEdit(){
     popupEdit.classList.remove("popup_opened");
+    nameInput.value=nameProfile.textContent;
+    jobInput.value=jobProfile.textContent;
+}
+
+function openPopupAdd(){
+    popupAdd.classList.remove("popup_opened");
     nameInput.value=nameProfile.textContent;
     jobInput.value=jobProfile.textContent;
 }
@@ -77,5 +88,7 @@ initialCards.forEach(function (card) {
 });
 
 formElement.addEventListener('submit', handleProfileFormSubmit);
-closePopupButton.addEventListener('click', closePopup);
+closePopupButtonEdit.addEventListener('click', closePopupEdit);
+closePopupButtonAdd.addEventListener('click', closePopupAdd);
 openPopupButtonEdit.addEventListener('click', openPopupEdit);
+openPopupButtonAdd.addEventListener('click', openPopupAdd);
