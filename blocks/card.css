@@ -11,15 +11,16 @@
 }
 
 .card__footer{
-  display: flex;
+  display: grid;
+  grid-template-columns: 225px 21px;
+  margin: 25px 21px 31px;
   align-items: center;
   width: 100%;
   position: relative;
 }
 
 .card__title{
-  margin: 25px 15px 31px 21px;
-  width: 246px;
+  margin: 0;
   display: block;
   color: #000;
   font-size: 24px;
@@ -31,8 +32,8 @@
 }
 
 .card__like{
-  position: absolute;
-  right: 16px;
+  /* position: absolute;
+  right: 16px; */
   width: 21px;
   height: 19px;
   cursor: pointer;
@@ -46,8 +47,8 @@
 }
 
 .card__like:hover{
-  position: absolute;
-  right: 16px;
+  /* position: absolute;
+  right: 16px; */
   width: 21px;
   height: 19px;
   cursor: pointer;
@@ -60,8 +61,8 @@
 }
 
 .card__like_active{
-  position: absolute;
-  right: 16px;
+  /* position: absolute;
+  right: 16px; */
   width: 21px;
   height: 19px;
   cursor: pointer;
@@ -74,8 +75,8 @@
 }
 
 .card__like_active:hover{
-  position: absolute;
-  right: 16px;
+  /* position: absolute;
+  right: 16px; */
   width: 21px;
   height: 19px;
   cursor: pointer;
