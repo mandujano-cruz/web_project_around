@@ -77,13 +77,22 @@ function handleImageFormSubmit(evt) {
 
     cardElement.querySelector(".card__like").addEventListener("click", function (evt){
         evt.target.classList.toggle("card__like_active");
-    })
+    });
+
+    cardElement.querySelector(".card__delete").addEventListener("click", function (){
+        cardSelect = document.querySelector(".card");
+        cardSelect.remove();
+    });
 
     sectionElements.prepend(cardElement);
 
     popupAdd.classList.add("popup_opened");
     titleInput.value = "";
     linkInput.value = "";
+}
+
+function deleteImage(){
+
 }
 
 function closePopupEdit() {
@@ -116,7 +125,11 @@ initialCards.forEach(function (card) {
 
     cardElement.querySelector(".card__like").addEventListener("click", function (evt){
         evt.target.classList.toggle("card__like_active");
-    })
+    });
+
+    cardElement.querySelector(".card__delete").addEventListener("click", function (){
+        document.querySelector(".card").remove();
+    });
 
     sectionElements.append(cardElement);
 });
