@@ -35,6 +35,8 @@ const formElement = document.querySelector(".popup__container");
 const openPopupButton = document.querySelector(".profile__edit-button");
 const closePopupButton = document.querySelector(".popup__close");
 const popup = document.querySelector(".popup");
+const popupEdit = document.querySelector(".popup_edit");
+const popupAdd = document.querySelector(".popup_add");
 const nameInput = document.querySelector(".popup__input_name");
 const jobInput = document.querySelector(".popup__input_about");
 const nameProfile=document.querySelector(".profile__name");
@@ -50,15 +52,15 @@ function handleProfileFormSubmit(evt) {
     nameProfile.textContent=nameInput.value;
     jobProfile.textContent=jobInput.value;
 
-    popup.classList.add("popup_opened");
+    popupEdit.classList.add("popup_opened");
 }
 
-function closePopupEdit() {
+function closePopup() {
     popup.classList.add("popup_opened");
 }
 
 function openPopupEdit(){
-    popup.classList.remove("popup_opened");
+    popupEdit.classList.remove("popup_opened");
     nameInput.value=nameProfile.textContent;
     jobInput.value=jobProfile.textContent;
 }
@@ -75,5 +77,5 @@ initialCards.forEach(function (card) {
 });
 
 formElement.addEventListener('submit', handleProfileFormSubmit);
-closePopupButton.addEventListener('click', closePopupEdit);
+closePopupButton.addEventListener('click', closePopup);
 openPopupButton.addEventListener('click', openPopupEdit);
