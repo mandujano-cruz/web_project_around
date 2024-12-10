@@ -32,7 +32,7 @@ const initialCards = [
 ];
 
 const formElement = document.querySelector(".popup__container");
-const openPopupButton = document.querySelector(".profile__edit-button");
+const openPopupButtonEdit = document.querySelector(".profile__edit-button");
 const closePopupButton = document.querySelector(".popup__close");
 const popup = document.querySelector(".popup");
 const popupEdit = document.querySelector(".popup_edit");
@@ -78,4 +78,4 @@ initialCards.forEach(function (card) {
 
 formElement.addEventListener('submit', handleProfileFormSubmit);
 closePopupButton.addEventListener('click', closePopup);
-openPopupButton.addEventListener('click', openPopupEdit);
+openPopupButtonEdit.addEventListener('click', openPopupEdit);
