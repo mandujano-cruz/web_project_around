@@ -30,60 +30,59 @@
   overflow: hidden;
 }
 
-.card__pseudo{
-  display: inline-block;
-  vertical-align: middle;
-  border: 0;
-}
-
 .card__like{
   position: absolute;
   right: 16px;
   width: 21px;
   height: 19px;
+  cursor: pointer;
   overflow: hidden;
-  clip: react(0 0 0 0);
   background-image: url(../images/like.png);
+  background-color: transparent;
+  background-position: center;
   border: 0;
-  opacity: 0;
-}
-
-.card__like:checked + .card__pseudo_type_checkbox{
-  margin: 30px 18px 30px 0;
-  width: 21px;
-  height: 19px;
-  background-image: url(../images/like-selected.png);
-  border: 0 solid #FFF;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-color: #fff;
   opacity: 1;
+  transition: .3s;
 }
 
-.card__pseudo_type_checkbox{
-  margin: 30px 18px 30px 0;
+.card__like:hover{
+  position: absolute;
+  right: 16px;
   width: 21px;
   height: 19px;
+  cursor: pointer;
+  overflow: hidden;
   background-image: url(../images/like.png);
-  border: 0 solid #FFF;
+  background-color: transparent;
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-color: #fff;
+  border: 0;
+  opacity: .5;
+}
+
+.card__like_active{
+  position: absolute;
+  right: 16px;
+  width: 21px;
+  height: 19px;
+  cursor: pointer;
+  overflow: hidden;
+  background-image: url(../images/like-selected.png);
+  background-color: transparent;
+  background-position: center;
+  border: 0;
   opacity: 1;
 }
 
-
-.card__pseudo_type_checkbox:hover{
-  margin: 30px 18px 30px 0;
+.card__like_active:hover{
+  position: absolute;
+  right: 16px;
   width: 21px;
   height: 19px;
-  background-image: url(../images/like-hover.png);
-  border: 0 solid #FFF;
+  cursor: pointer;
+  overflow: hidden;
+  background-image: url(../images/like-selected.png);
+  background-color: transparent;
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-color: #fff;
-  opacity: .6;
+  border: 0;
+  opacity: .7;
 }

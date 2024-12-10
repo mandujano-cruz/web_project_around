@@ -75,6 +75,10 @@ function handleImageFormSubmit(evt) {
     cardElement.querySelector(".card__image").setAttribute("src", linkInput.value);
     cardElement.querySelector(".card__image").setAttribute("alt", "");
 
+    cardElement.querySelector(".card__like").addEventListener("click", function (evt){
+        evt.target.classList.toggle("card__like_active");
+    })
+
     sectionElements.prepend(cardElement);
 
     popupAdd.classList.add("popup_opened");
@@ -109,6 +113,10 @@ initialCards.forEach(function (card) {
     cardElement.querySelector(".card__title").textContent = card.name;
     cardElement.querySelector(".card__image").setAttribute("src", card.link);
     cardElement.querySelector(".card__image").setAttribute("alt", card.alt);
+
+    cardElement.querySelector(".card__like").addEventListener("click", function (evt){
+        evt.target.classList.toggle("card__like_active");
+    })
 
     sectionElements.append(cardElement);
 });
