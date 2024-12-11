@@ -16,7 +16,7 @@
   transform: translate(-50%, -50%);
   position: fixed;
   display: flex;
-  background-color: #000;
+  flex-direction: column;
 }
 
 .popup__close{
@@ -118,6 +118,16 @@
 .popup__image{
   max-width: 75vw;
   max-height: 75vh;
+}
+
+.popup__image-title{
+  width: 100%;
+  margin: 10px 0 0;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  font-size: 12px;
+  line-height: 14.52px;  
 }
 
 .popup_opened{

@@ -145,7 +145,7 @@ initialCards.forEach(function (card) {
         imageModal.setAttribute("src", evt.target.src);
         imageModal.setAttribute("alt", evt.target.alt);
         const imageTitle = document.querySelector(".popup__image-title");
-        // imageTitle.textContent();
+        imageTitle.textContent = evt.target.alt;
 
         popupImage.append(imageModal);
     });
