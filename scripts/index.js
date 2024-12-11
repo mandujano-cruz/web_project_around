@@ -107,7 +107,6 @@ function closePopupAdd() {
 }
 
 function closePopupImage() {
-    console.log("click close");
     popupImage.classList.add("popup_opened");
     overlay.classList.add("overlay_hidden");
 }
