@@ -83,6 +83,18 @@ function handleImageFormSubmit(evt) {
         evt.target.classList.toggle("card__like_active");
     });
 
+    cardElement.querySelector(".card__image").addEventListener("click", function (evt){
+        popupImage.classList.remove("popup_opened");
+        overlay.classList.remove("overlay_hidden");
+        const imageModal = document.querySelector(".popup__image");
+        imageModal.setAttribute("src", evt.target.src);
+        imageModal.setAttribute("alt", evt.target.alt);
+        const imageTitle = document.querySelector(".popup__image-title");
+        imageTitle.textContent = evt.target.alt;
+
+        popupImage.append(imageModal);
+    });
+
     cardElement.querySelector(".card__delete").addEventListener("click", function (){
         cardSelect = document.querySelector(".card");
         cardSelect.remove();
