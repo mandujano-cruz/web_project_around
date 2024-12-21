@@ -95,9 +95,8 @@ function handleImageFormSubmit(evt) {
         popupImage.append(imageModal);
     });
 
-    cardElement.querySelector(".card__delete").addEventListener("click", function (){
-        cardSelect = document.querySelector(".card");
-        cardSelect.remove();
+    cardElement.querySelector(".card__delete").addEventListener("click", function (e){
+        e.target.parentElement.remove();
     });
 
     sectionElements.prepend(cardElement);
@@ -161,8 +160,8 @@ initialCards.forEach(function (card) {
         popupImage.append(imageModal);
     });
 
-    cardElement.querySelector(".card__delete").addEventListener("click", function (){
-        document.querySelector(".card").remove();
+    cardElement.querySelector(".card__delete").addEventListener("click", function (e){
+        e.target.parentElement.remove();
     });
 
     sectionElements.append(cardElement);
