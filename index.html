@@ -42,7 +42,9 @@
           <h2 class="popup__title">Editar perfil</h2>
           <form class="popup__container">
             <input class="popup__input popup__input_name" type="text" name="name" placeholder="Nombre" required>
+            <span class="popup__error_visible"></span>
             <input class="popup__input popup__input_about" type="text" name="about" placeholder="Acerca de mí" required>
+            <span class="popup__error_visible"></span>
             <button class="popup__save-button">Guardar</button>
           </form>
         </div>
@@ -51,13 +53,15 @@
           <h2 class="popup__title">Nuevo lugar</h2>
           <form class="popup__container">
             <input class="popup__input popup__input_title" type="text" name="title" placeholder="Título" required>
+            <span class="popup__error_visible"></span>
             <input class="popup__input popup__input_link" type="text" name="link" placeholder="Enlace de la imagen" required>
+            <span class="popup__error_visible"></span>
             <button class="popup__save-button">Crear</button>
           </form>
         </div>
         <div class="popup_image popup_opened">
           <button class="popup__close"></button>
-          <img class="popup__image" src="" alt="">
+          <img class="popup__image" src=" " alt=" ">
           <p class="popup__image-title"></p>
         </div>
       </div>
