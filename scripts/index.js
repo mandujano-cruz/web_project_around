@@ -1,3 +1,5 @@
+import {showInputError, hideInputError, checkInputValidity, hasInvalidInput, toggleButtonState, setEventListeners, enableValidation} from "./validate.js";
+
 const initialCards = [
     {
         name: "Boston",
@@ -31,15 +33,11 @@ const initialCards = [
     }
 ];
 
-import {showInputError, hideInputError, checkInputValidity, hasInvalidInput, toggleButtonState, setEventListeners, enableValidation} from "./validate.js";
-
 const popupEdit = document.querySelector(".popup_edit");
 const popupAdd = document.querySelector(".popup_add");
 const popupImage = document.querySelector(".popup_image");
 const overlay = document.querySelector(".overlay");
 
-// const formElementEdit = popupEdit.querySelector(".popup__container");
-// const formElementAdd = popupAdd.querySelector(".popup__container");
 const formElementEdit = document.forms.profile;
 const formElementAdd = document.forms.image;
 
