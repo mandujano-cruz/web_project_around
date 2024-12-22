@@ -38,8 +38,10 @@ const popupAdd = document.querySelector(".popup_add");
 const popupImage = document.querySelector(".popup_image");
 const overlay = document.querySelector(".overlay");
 
-const formElementEdit = popupEdit.querySelector(".popup__container");
-const formElementAdd = popupAdd.querySelector(".popup__container");
+// const formElementEdit = popupEdit.querySelector(".popup__container");
+// const formElementAdd = popupAdd.querySelector(".popup__container");
+const formElementEdit = document.forms.profile;
+const formElementAdd = document.forms.image;
 
 const closePopupButtonEdit = popupEdit.querySelector(".popup__close");
 const closePopupButtonAdd = popupAdd.querySelector(".popup__close");
@@ -123,8 +125,7 @@ function handleImageFormSubmit(evt) {
 
     popupAdd.classList.add("popup_opened");
     overlay.classList.add("overlay_hidden");
-    titleInput.value = "";
-    linkInput.value = "";
+    formElementAdd.reset();
 }
 
 function handleProfileFormSubmit(evt) {
