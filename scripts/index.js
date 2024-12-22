@@ -179,10 +179,12 @@ function closePopupImage() {
 }
 
 function openPopupEdit(){
+    const buttonElement = formElementEdit.querySelector(".popup__save-button");
     popupEdit.classList.remove("popup_opened");
     overlay.classList.remove("overlay_hidden");
     nameInput.value=nameProfile.textContent;
     jobInput.value=jobProfile.textContent;
+    toggleButtonState([nameInput, jobInput], buttonElement);
 }
 
 function openPopupAdd(){
