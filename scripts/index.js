@@ -82,6 +82,13 @@ initialCards.forEach(function (card) {
         imageTitle.textContent = evt.target.alt;
 
         popupImage.append(imageModal);
+
+        document.addEventListener("keydown", function (evt) {
+            console.log(evt.key);
+            if (evt.key === "Escape") {
+                closePopupImage();
+            }
+        });
     });
 
     cardElement.querySelector(".card__delete").addEventListener("click", function (e){
@@ -115,6 +122,13 @@ function handleImageFormSubmit(evt) {
         imageTitle.textContent = evt.target.alt;
 
         popupImage.append(imageModal);
+
+        document.addEventListener("keydown", function (evt) {
+            console.log(evt.key);
+            if (evt.key === "Escape") {
+                closePopupImage();
+            }
+        });
     });
 
     cardElement.querySelector(".card__delete").addEventListener("click", function (e){
