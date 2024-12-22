@@ -17,6 +17,7 @@
   position: fixed;
   display: flex;
   flex-direction: column;
+  z-index: 1;
 }
 
 .popup__close{
@@ -139,6 +140,7 @@
 .popup__image{
   max-width: 75vw;
   max-height: 75vh;
+  z-index: 2;
 }
 
 .popup__image-title{

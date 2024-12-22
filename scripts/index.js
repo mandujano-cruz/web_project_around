@@ -84,8 +84,12 @@ initialCards.forEach(function (card) {
         popupImage.append(imageModal);
 
         document.addEventListener("keydown", function (evt) {
-            console.log(evt.key);
             if (evt.key === "Escape") {
+                closePopupImage();
+            }
+        });
+        overlay.addEventListener("click", function (evt) {
+            if (evt.target===overlay) {
                 closePopupImage();
             }
         });
@@ -124,8 +128,12 @@ function handleImageFormSubmit(evt) {
         popupImage.append(imageModal);
 
         document.addEventListener("keydown", function (evt) {
-            console.log(evt.key);
             if (evt.key === "Escape") {
+                closePopupImage();
+            }
+        });
+        overlay.addEventListener("click", function (evt) {
+            if (evt.target===overlay) {
                 closePopupImage();
             }
         });
