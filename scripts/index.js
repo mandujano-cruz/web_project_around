@@ -35,7 +35,7 @@ const initialCards = [
 
 const popupEdit = document.querySelector(".popup_edit");
 const popupAdd = document.querySelector(".popup_add");
-const popupImage = document.querySelector(".popup_image");
+const popupImage = document.querySelector(".popup-image");
 const overlay = document.querySelector(".overlay");
 
 const formElementEdit = document.forms.profile;
