@@ -100,6 +100,22 @@
   color: #C4C4C4;
 }
 
+.popup__input-error {
+  display: inline-flex;
+  margin: 0;
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+}
+
+.popup__input-error_active {
+  margin: 0;
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+  color: #F00;
+}
+
 .popup__save-button{
   margin-top: 18px;
   width: 100%;
@@ -149,24 +165,6 @@
   left: 0;
   font-size: 12px;
   line-height: 14.52px;  
-}
-
-.popup__input-error {
-  display: inline-flex;
-  margin: 0;
-  width: 100%;
-  height: 30px;
-  font-size: 12px;
-  color: #F00;
-}
-
-.popup__input-error_active {
-  display: inline-block;
-  margin: 0;
-  width: 100%;
-  height: 30px;
-  font-size: 12px;
-  color: #F00;
 }
 
 .popup_opened{
