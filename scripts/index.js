@@ -185,6 +185,16 @@ function openPopupEdit(){
     nameInput.value=nameProfile.textContent;
     jobInput.value=jobProfile.textContent;
     toggleButtonState([nameInput, jobInput], buttonElement);
+    document.addEventListener("keydown", function (evt) {
+        if (evt.key === "Escape") {
+            closePopupImage();
+        }
+    });
+    overlay.addEventListener("click", function (evt) {
+        if (evt.target===overlay) {
+            closePopupImage();
+        }
+    });
 }
 
 function openPopupAdd(){
@@ -192,6 +202,16 @@ function openPopupAdd(){
     overlay.classList.remove("overlay_hidden");
     nameInput.value=nameProfile.textContent;
     jobInput.value=jobProfile.textContent;
+    document.addEventListener("keydown", function (evt) {
+        if (evt.key === "Escape") {
+            closePopupImage();
+        }
+    });
+    overlay.addEventListener("click", function (evt) {
+        if (evt.target===overlay) {
+            closePopupImage();
+        }
+    });
 }
 
 
