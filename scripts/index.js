@@ -31,6 +31,8 @@ const initialCards = [
     }
 ];
 
+import {showInputError, hideInputError, checkInputValidity, hasInvalidInput, toggleButtonState, setEventListeners, enableValidation} from "./validate.js";
+
 const popupEdit = document.querySelector(".popup_edit");
 const popupAdd = document.querySelector(".popup_add");
 const popupImage = document.querySelector(".popup_image");
@@ -46,13 +48,13 @@ const closePopupButtonImage = popupImage.querySelector(".popup__close");
 const openPopupButtonEdit = document.querySelector(".profile__edit-button");
 const openPopupButtonAdd = document.querySelector(".profile__add-image");
 
-const nameInput = document.querySelector(".popup__input_name");
-const jobInput = document.querySelector(".popup__input_about");
+const nameInput = document.querySelector(".popup__input-name");
+const jobInput = document.querySelector(".popup__input-about");
 const nameProfile=document.querySelector(".profile__name");
 const jobProfile=document.querySelector(".profile__about-me");
 
-const titleInput = document.querySelector(".popup__input_title");
-const linkInput = document.querySelector(".popup__input_link");
+const titleInput = document.querySelector(".popup__input-title");
+const linkInput = document.querySelector(".popup__input-link");
 
 const sectionElements = document.querySelector(".elements");
 
