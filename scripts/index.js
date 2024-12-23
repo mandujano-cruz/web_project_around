@@ -70,7 +70,7 @@ function loadingCard(cardElement) {
         imageModal.setAttribute("src", evt.target.src);
         imageModal.setAttribute("alt", evt.target.alt);
         const imageTitle = document.querySelector(".popup__image-title");
-        imageTitle.textContent = evt.target.alt;
+        imageTitle.textContent = evt.target.parentElement.querySelector(".card__title").textContent;
 
         popupImage.append(imageModal);
 
