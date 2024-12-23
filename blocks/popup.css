@@ -1,4 +1,13 @@
 .popup{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+}
+
+.popup_edit {
   width: 430px;
   top: 50%;
   left: 50%;
@@ -10,13 +19,16 @@
   border-radius: 10px;
 }
 
-.popup-image{
+.popup_add{
+  width: 430px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  position: fixed;
   display: flex;
+  position: fixed;
   flex-direction: column;
+  background-color: #FFF;
+  border-radius: 10px;
 }
 
 .popup__close{
