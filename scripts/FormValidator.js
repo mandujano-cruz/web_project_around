@@ -19,9 +19,9 @@ class FormValidator {
 
     _checkInputValidity (formElement, inputElement) {
         if (!inputElement.validity.valid) {
-            _showInputError(formElement, inputElement, inputElement.validationMessage);
+            this._showInputError(formElement, inputElement, inputElement.validationMessage);
         } else {
-            _hideInputError(formElement, inputElement);
+            this._hideInputError(formElement, inputElement);
         }
     }
 
@@ -31,8 +31,8 @@ class FormValidator {
         });
     }
     
-    _toggleButtonState (inputList, buttonElement) {
-        if (_hasInvalidInput(inputList)) {
+    toggleButtonState (inputList, buttonElement) {
+        if (this._hasInvalidInput(inputList)) {
             buttonElement.setAttribute("disabled", true);
         } else {
             buttonElement.removeAttribute("disabled");
@@ -42,28 +42,26 @@ class FormValidator {
     _setEventListeners (formElement) {
         const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
         const buttonElement = formElement.querySelector(".popup__save-button");
-        _toggleButtonState(inputList, buttonElement);
+        this.toggleButtonState(inputList, buttonElement);
     
         inputList.forEach((inputElement) => {
-            inputElement.addEventListener("input", function () {
-                _checkInputValidity(formElement, inputElement);
-                _toggleButtonState(inputList, buttonElement);
+            inputElement.addEventListener("input", () => {
+                this._checkInputValidity(formElement, inputElement);
+                this.toggleButtonState(inputList, buttonElement);
             });
         });
     }
 
     enableValidation () {
-        const formList = Array.from(document.querySelectorAll(".popup__container"));
-        formList.forEach((formElement) => {
+        // const formList = Array.from(document.querySelectorAll(".popup__container"));
+        this._formList.forEach((formElement) => {
             formElement.addEventListener("submit", function (evt) {
                 evt.preventDefault();
             });
     
-            _setEventListeners(formElement);
+            this._setEventListeners(formElement);
         });
     }
 }
-
-// enableValidation();
 
 export {FormValidator};

@@ -79,6 +79,14 @@ class Card {
         overlay.addEventListener("click", (evt) => {
             evt.target === overlay && this._handleClosePopup();
         });
+
+        this._element.querySelector(".card__like").addEventListener("click", (evt) => {
+            evt.target.classList.toggle("card__like_active");
+        });
+
+        this._element.querySelector(".card__delete").addEventListener("click", (evt) => {
+            evt.target.parentElement.remove();
+        });
     }
 
     generateCard () {
