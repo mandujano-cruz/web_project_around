@@ -1,5 +1,6 @@
 // import {showInputError, hideInputError, checkInputValidity, hasInvalidInput, toggleButtonState, setEventListeners, enableValidation} from "./validate.js";
-import {initialCards} from "./Card.js";
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
 
 // const initialCards = [
 //     {

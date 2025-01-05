@@ -98,4 +98,4 @@ initialCards.forEach((item) => {
     cardList.append(cardElement);
 });
 
-export {initialCards};
+export {Card};
