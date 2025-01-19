@@ -1,19 +1,20 @@
 class FormValidator {
-    constructor (formList) {
+    constructor (config, formList) {
+        this._config = config;
         this._formList = formList;
     }
 
     _showInputError (formElement, inputElement, errorMessage) {
         const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.add("popup__input_type_error");
+        inputElement.classList.add(this._config.inputErrorClass);
         errorElement.textContent = errorMessage;
-        errorElement.classList.add("popup__input-error_active");
+        errorElement.classList.add(this._config.errorClass);
     }
 
     _hideInputError (formElement, inputElement) {
         const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.remove("popup__input_type_error");
-        errorElement.classList.remove("popup__input-error_active");
+        inputElement.classList.remove(this._config.errorClass);
+        errorElement.classList.remove(this._config.inputErrorClass);
         errorElement.textContent = "";
     }
 
@@ -40,8 +41,8 @@ class FormValidator {
     }
     
     _setEventListeners (formElement) {
-        const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
-        const buttonElement = formElement.querySelector(".popup__save-button");
+        const inputList = Array.from(formElement.querySelectorAll(this._config.inputSelector));
+        const buttonElement = formElement.querySelector(this._config.submitButtonSelector);
         this.toggleButtonState(inputList, buttonElement);
     
         inputList.forEach((inputElement) => {
@@ -53,7 +54,6 @@ class FormValidator {
     }
 
     enableValidation () {
-        // const formList = Array.from(document.querySelectorAll(".popup__container"));
         this._formList.forEach((formElement) => {
             formElement.addEventListener("submit", function (evt) {
                 evt.preventDefault();

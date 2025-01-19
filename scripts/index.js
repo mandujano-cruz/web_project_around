@@ -1,5 +1,5 @@
 import { Card } from "./Card.js";
-import {closePopup, openPopupAdd, openPopupEdit, nameInput, jobInput, nameProfile, jobProfile} from "./utils.js";
+import {closePopup, nameInput, jobInput, nameProfile, jobProfile} from "./utils.js";
 
 const popupEdit = document.querySelector(".popup_edit");
 const popupAdd = document.querySelector(".popup_add");

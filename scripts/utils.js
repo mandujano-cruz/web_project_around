@@ -20,6 +20,14 @@ const closePopupButtonImage = popupImage.querySelector(".popup__close");
 const openPopupButtonEdit = document.querySelector(".profile__edit-button");
 const openPopupButtonAdd = document.querySelector(".profile__add-image");
 
+const config = {
+    formSelector: '.popup__container',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__save-button',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_active'
+};
+
 function closePopup(popupElement) {
     popupElement.classList.add("popup_opened");
     overlay.classList.add("overlay_hidden");
@@ -28,9 +36,8 @@ function closePopup(popupElement) {
 }
 
 function openPopupEdit(){
-    const buttonElement = formElementEdit.querySelector(".popup__save-button");
-    const formList = Array.from(document.querySelectorAll(".popup__container"));
-    const validateProfile = new FormValidator(formList);
+    const formList = Array.from(document.querySelectorAll(config.formSelector));
+    const validateProfile = new FormValidator(config, formList);
     validateProfile.enableValidation();
 
     popupEdit.classList.remove("popup_opened");
@@ -38,7 +45,7 @@ function openPopupEdit(){
     nameInput.value=nameProfile.textContent;
     jobInput.value=jobProfile.textContent;
 
-    validateProfile.toggleButtonState([nameInput, jobInput], buttonElement);
+    validateProfile.toggleButtonState([nameInput, jobInput], formElementEdit.querySelector(config.submitButtonSelector));
 
     document.addEventListener("keydown", function (evt) {
         evt.key==="Escape" && closePopup(popupEdit);
@@ -50,8 +57,8 @@ function openPopupEdit(){
 }
 
 function openPopupAdd(){
-    const formList = Array.from(document.querySelectorAll(".popup__container"));
-    const validateProfile = new FormValidator(formList);
+    const formList = Array.from(document.querySelectorAll(config.formSelector));
+    const validateProfile = new FormValidator(config, formList);
     validateProfile.enableValidation();
 
     popupAdd.classList.remove("popup_opened");
