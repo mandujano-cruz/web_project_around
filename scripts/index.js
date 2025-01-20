@@ -1,16 +1,16 @@
 import { Card } from "./Card.js";
-import {closePopup, nameInput, jobInput, nameProfile, jobProfile} from "./utils.js";
+import {closePopup, nameInput, jobInput, nameProfile, jobProfile, titleInput, linkInput, sectionElements, formElementAdd, formElementEdit, popupAdd, popupEdit} from "./utils.js";
 
-const popupEdit = document.querySelector(".popup_edit");
-const popupAdd = document.querySelector(".popup_add");
+// const popupEdit = document.querySelector(".popup_edit");
+// const popupAdd = document.querySelector(".popup_add");
 
-const formElementEdit = document.forms.profile;
-const formElementAdd = document.forms.image;
+// const formElementEdit = document.forms.profile;
+// const formElementAdd = document.forms.image;
 
-const titleInput = document.querySelector(".popup__input-title");
-const linkInput = document.querySelector(".popup__input-link");
+// const titleInput = document.querySelector(".popup__input-title");
+// const linkInput = document.querySelector(".popup__input-link");
 
-const sectionElements = document.querySelector(".elements");
+// const sectionElements = document.querySelector(".elements");
 
 function handleImageFormSubmit(evt) {
     evt.preventDefault();
