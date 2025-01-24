@@ -32,9 +32,9 @@
 // const overlay = document.querySelector(".overlay");
 // const cardList = document.querySelector(".elements");
 
-import {initialCards, popupElement, popupImageTitle, popupCloseButton, cardList, overlay, popupImage} from "./utils.js";
+import {initialCards, popupElement, popupImageTitle, popupCloseButton, cardList, overlay, popupImage} from "../scripts/utils.js";
 
-class Card {
+export default class Card {
     constructor (name, link, cardSelector) {
         this._name = name;
         this._link = link;
@@ -107,5 +107,3 @@ initialCards.forEach((item) => {
     const cardElement = card.generateCard();
     cardList.append(cardElement);
 });
-
-export {Card};

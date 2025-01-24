@@ -1,4 +1,4 @@
-import { nameInput, jobInput, nameProfile, jobProfile } from "./utils";
+import { nameInput, jobInput, nameProfile, jobProfile } from "../scripts/utils";
 
 class UserInfo {
   constructor ({name, job}) {

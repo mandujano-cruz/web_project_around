@@ -7,11 +7,11 @@ class PopupWithForms extends Popup {
   }
 
   _getInputValues () {
-
+    const formList = Array.from(document.querySelectorAll(".popup__container"));
   }
 
   open () {
-    const formList = Array.from(document.querySelectorAll(".popup__container"));
+    // const formList = Array.from(document.querySelectorAll(".popup__container"));
     const validateProfile = new FormValidator(config, formList);
     // popupAdd.classList.remove("popup_opened");
     // overlay.classList.remove("overlay_hidden");

@@ -1,4 +1,4 @@
-import {overlay, popupAdd} from "./utils.js";
+import {overlay, popupAdd} from "../scripts/utils.js";
 
 export default class Popup {
   constructor (popupSelector) {
