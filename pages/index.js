@@ -1,4 +1,4 @@
-import { Card } from "../components/Card.js";
+import Card from "../components/Card.js";
 import {closePopup, nameInput, jobInput, nameProfile, jobProfile, titleInput, linkInput, sectionElements, formElementAdd, formElementEdit, popupAdd, popupEdit} from "../scripts/utils.js";
 
 // const popupEdit = document.querySelector(".popup_edit");
