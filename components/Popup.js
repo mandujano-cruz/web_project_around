@@ -1,33 +1,33 @@
-import {overlay, popupAdd} from "../scripts/utils.js";
-
 export default class Popup {
-  constructor (popupSelector) {
-    this._popupSelector = popupSelector;
+  constructor(popupSelector) {
+    this._popup = document.querySelector(popupSelector);
+    this._closeButton = this._popup.querySelector(".popup__close");
+    this._overlay = document.querySelector(".overlay");
   }
 
-  open () {
-    // const formList = Array.from(document.querySelectorAll(".popup__container"));
-    // const validateProfile = new FormValidator(config, formList);
-    popupAdd.classList.remove("popup_opened");
-    overlay.classList.remove("overlay_hidden");
-    // validateProfile.enableValidation();
+  open() {
+    this._popup.classList.remove("popup_opened");
+    this._overlay.classList.remove("overlay_hidden");
   }
 
-  close (element) {
-    element.classList.add("popup_opened");
-    overlay.classList.add("overlay_hidden");
+  close() {
+    this._popup.classList.add("popup_opened");
+    this._overlay.classList.add("overlay_hidden");
   }
 
-  _handleEscClose (evt) {
-    evt.key === "Escape" && this.close(this._popupSelector);
+  _handleEscClose(evt) {
+    if (evt.key === "Escape" && this._popup.classList.contains("popup_opened")) {
+      this.close();
+    }
   }
 
-  setEventListeners () {
-    document.addEventListener("keydown", (evt) => {
-      this._handleEscClose(evt);
-    } );
-    overlay.addEventListener("click", (evt) => {
-      evt.target === overlay && this.close(this._popupSelector);
+  setEventListeners() {
+    this._closeButton.addEventListener("click", () => this.close());
+    this._overlay.addEventListener("click", (evt) => {
+      if (evt.target === this._overlay && this._popup.classList.contains("popup_opened")) {
+        this.close();
+      }
     });
+    document.addEventListener("keydown", (evt) => this._handleEscClose(evt));
   }
 }

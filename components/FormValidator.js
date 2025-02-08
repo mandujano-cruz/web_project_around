@@ -1,4 +1,4 @@
-class FormValidator {
+export default class FormValidator {
     constructor (config, formList) {
         this._config = config;
         this._formList = formList;
@@ -13,8 +13,8 @@ class FormValidator {
 
     _hideInputError (formElement, inputElement) {
         const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.remove(this._config.errorClass);
-        errorElement.classList.remove(this._config.inputErrorClass);
+        errorElement.classList.remove(this._config.errorClass);
+        inputElement.classList.remove(this._config.inputErrorClass);
         errorElement.textContent = "";
     }
 
@@ -63,5 +63,3 @@ class FormValidator {
         });
     }
 }
-
-export {FormValidator};

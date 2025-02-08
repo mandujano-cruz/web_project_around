@@ -1,15 +1,16 @@
 import Popup from "./Popup.js";
-import { popupImage, popupImageTitle } from "../scripts/utils.js";
 
-class PopuoWithImage extends Popup {
-  constructor(popupSelector){
+export default class PopupWithImage extends Popup {
+  constructor(popupSelector) {
     super(popupSelector);
+    this._popupImage = this._popup.querySelector(".popup__image");
+    this._popupImageTitle = this._popup.querySelector(".popup__image-title");
   }
 
-  open () {
-    popupImage.src = this._link;
-    popupImageTitle.textContent = this._name;
-    // popupElement.classList.remove("popup_opened");
-    // overlay.classList.remove("overlay_hidden");
+  open(name, link) {
+    this._popupImage.src = link;
+    this._popupImage.alt = name;
+    this._popupImageTitle.textContent = name;
+    super.open(); // Llamar al método open() del padre
   }
 }

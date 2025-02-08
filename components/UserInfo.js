@@ -1,21 +1,18 @@
-import { nameInput, jobInput, nameProfile, jobProfile } from "../scripts/utils";
-
-class UserInfo {
-  constructor ({name, job}) {
-    this._name = name;
-    this._job = job;
+export default class UserInfo {
+  constructor({ nameSelector, jobSelector }) {
+    this._nameElement = document.querySelector(nameSelector);
+    this._jobElement = document.querySelector(jobSelector);
   }
 
-  getUserInfo () {
-    nameInput.value=this._name;
-    jobInput.value=this._job;
+  getUserInfo() {
+    return {
+      name: this._nameElement.textContent,
+      job: this._jobElement.textContent
+    };
   }
 
-  setUserInfo () {
-    // nameInput.textContent=nameInput.value;
-    // jobInput.textContent=jobInput.value;
-
-    nameProfile.textContent=this._name;
-    jobProfile.textContent=this._job;
+  setUserInfo({ name, about }) {
+    this._nameElement.textContent = name;
+    this._jobElement.textContent = about;
   }
 }
