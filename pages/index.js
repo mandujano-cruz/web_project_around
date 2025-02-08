@@ -12,9 +12,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 
-// Instanciamos las clases y configuramos los elementos.
 
-// Instancia para las tarjetas
 const section = new Section({
   items: initialCards,
   renderer: (item) => {
@@ -27,10 +25,10 @@ const section = new Section({
 }, ".elements");
 section.renderer();
 
-// Instancia para el popup de imagen
+
 const popupWithImage = new PopupWithImage(".popup_image");
 
-// Instancia para el popup con formulario de edición
+
 const popupWithFormEdit = new PopupWithForm({
   handleFormSubmit: (data) => {
     userInfo.setUserInfo(data);
@@ -65,13 +63,13 @@ popupWithFormEdit.setEventListeners();
 popupWithFormAdd.setEventListeners();
 popupWithImage.setEventListeners();
 
-// Instancia para la información del usuario
+
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
   jobSelector: ".profile__about-me"
 });
 
-// Configuración del botón de editar perfil
+
 editButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.name;
