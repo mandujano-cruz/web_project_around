@@ -7,4 +7,8 @@ Tecnologías y técnicas utilizadas: Se elaboró la página con varias combinaci
 
 También se añadieron funcionalidades con ayuda de JavaScript en donde se visualiza un modal en el cual se puede interactuar para editar el perfil del usuario cambiando el nombre y algo acerca del mismo.
 
+Dentro de la organización del código, se dividió las funciones en clases para un mayor entendimiento y mayor facilidad de adaptar las clases para otros proyectos que puedan utilizar estas funciones. También se divideron las constantes a utilizar para evitar una saturación de código y que sea funcional con la ayuda de las importaciones y exportaciones de las clases.
+
+Se aplican términos como herencia, encapsulación y desestructuración.
+
 Para consultar la página web, ingresa al siguiente enlace: https://mandujano-cruz.github.io/web_project_around/
