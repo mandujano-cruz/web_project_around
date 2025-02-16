@@ -9,6 +9,7 @@ import {
 import Card from "../components/Card.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 
@@ -18,6 +19,11 @@ const section = new Section({
   renderer: (item) => {
     const card = new Card(item, "#card-template", (name, link) => {
       popupWithImage.open(name, link);
+    }, (evt) => {
+      popupWithConfirmation.open();
+      popupWithConfirmation.setConfirmDelete(() => {
+        evt.target.closest(".card").remove();
+      })
     });
     const cardElement = card.generateCard();
     cardList.append(cardElement);
@@ -27,6 +33,8 @@ section.renderer();
 
 
 const popupWithImage = new PopupWithImage(".popup_image");
+
+const popupWithConfirmation = new PopupWithConfirmation(".popup_delete");
 
 
 const popupWithFormEdit = new PopupWithForm({
@@ -62,6 +70,7 @@ const popupWithFormAdd = new PopupWithForm({
 popupWithFormEdit.setEventListeners();
 popupWithFormAdd.setEventListeners();
 popupWithImage.setEventListeners();
+popupWithConfirmation.setEventListeners();
 
 
 const userInfo = new UserInfo({

@@ -16,7 +16,7 @@ export default class Popup {
   }
 
   _handleEscClose(evt) {
-    if (evt.key === "Escape" && this._popup.classList.contains("popup_opened")) {
+    if (evt.key === "Escape" && !this._popup.classList.contains("popup_opened")) {
       this.close();
     }
   }
@@ -24,7 +24,7 @@ export default class Popup {
   setEventListeners() {
     this._closeButton.addEventListener("click", () => this.close());
     this._overlay.addEventListener("click", (evt) => {
-      if (evt.target === this._overlay && this._popup.classList.contains("popup_opened")) {
+      if (evt.target === this._overlay && !this._popup.classList.contains("popup_opened")) {
         this.close();
       }
     });
