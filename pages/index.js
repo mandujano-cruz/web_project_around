@@ -4,7 +4,8 @@ import {
   nameInput, 
   jobInput,
   editButton,
-  addButton
+  addButton,
+  profilePhoto
 } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -48,7 +49,7 @@ const popupWithFormEdit = new PopupWithForm({
 const addCard = new Section({
   items: [],
   renderer: (item) => {
-    const card = new Card(item, "#card-template", handleCardClick);
+    const card = new Card(item, "#card-template", handleCardClick, handleDeleteCard);
     addCard.addItem(card.generateCard());
   }
 }, ".elements");
@@ -61,6 +62,11 @@ const popupWithFormAdd = new PopupWithForm({
       link: data.link
     }, "#card-template", (name, link) => {
       popupWithImage.open(name, link);
+    },  (evt) => {
+      popupWithConfirmation.open();
+      popupWithConfirmation.setConfirmDelete(() => {
+        evt.target.closest(".card").remove();
+      })
     });
     const cardElement = card.generateCard();
     addCard.addItem(cardElement);
@@ -70,8 +76,8 @@ const popupWithFormAdd = new PopupWithForm({
 
 const popupWithFormChangePhoto = new PopupWithForm({
   handleFormSubmit: (data) => {
-    userInfo.setUserInfo(data);
-    popupWithFormEdit.close();
+    profilePhoto.src = data.photo;
+    popupWithFormChangePhoto.close();
   }
 }, ".popup_edit");
 
@@ -79,6 +85,7 @@ popupWithFormEdit.setEventListeners();
 popupWithFormAdd.setEventListeners();
 popupWithImage.setEventListeners();
 popupWithConfirmation.setEventListeners();
+popupWithFormChangePhoto.setEventListeners();
 
 
 const userInfo = new UserInfo({
@@ -95,6 +102,5 @@ editButton.addEventListener("click", () => {
 });
 
 addButton.addEventListener("click", () => {
-
   popupWithFormAdd.open();
 })

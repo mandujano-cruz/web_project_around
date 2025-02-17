@@ -31,7 +31,6 @@ export default class Card {
       });
   
       this._element.querySelector(".card__delete").addEventListener("click", (evt) => {
-        // evt.target.closest(".card").remove();
         this._handleDeleteCard(evt);
       });
   

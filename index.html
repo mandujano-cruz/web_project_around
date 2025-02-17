@@ -16,7 +16,10 @@
     </header>
     <main>
       <section class="profile">
-        <img class="profile__image" src="./images/profile.jpg" alt="Foto de perfil. No lo dudes, te ves excelente.">
+        <div class="profile__container">
+          <img class="profile__image" src="./images/profile.jpg" alt="Foto de perfil. No lo dudes, te ves excelente.">
+          <img class="profile__image_edit" src="./images/editPhoto.png" alt="Imagen de edición">
+        </div>
         <div class="profile__info">
           <h1 class="profile__name">Jacques Cousteau</h1>
           <p class="profile__about-me">Explorador</p>
@@ -74,7 +77,7 @@
         <div class="popup popup_photo popup_opened">
           <button class="popup__close"></button>
           <h2 class="popup__title">Cambiar foto de perfil</h2>
-          <form class="popup__container" name="photo" novalidate>
+          <form class="popup__container" name="photoProfile" novalidate>
             <input class="popup__input popup__input-photo" type="url" id="photo-input" name="photo" placeholder="Enlace de la foto de perfil" required>
             <span class="popup__input-error photo-input-error"></span>
             <button class="popup__save-button">Guardar</button>
