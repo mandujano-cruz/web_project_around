@@ -71,6 +71,15 @@
             <button class="popup__confirm-delete">Sí</button>
           </form>
         </div>
+        <div class="popup popup_photo popup_opened">
+          <button class="popup__close"></button>
+          <h2 class="popup__title">Cambiar foto de perfil</h2>
+          <form class="popup__container" name="photo" novalidate>
+            <input class="popup__input popup__input-photo" type="url" id="photo-input" name="photo" placeholder="Enlace de la foto de perfil" required>
+            <span class="popup__input-error photo-input-error"></span>
+            <button class="popup__save-button">Guardar</button>
+          </form>
+        </div>
       </div>
     </main>
     <footer class="footer">&copy; 2024. Around The U.S.</footer>

@@ -43,6 +43,18 @@
   border-radius: 10px;
 }
 
+.popup_photo{
+  width: 430px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  background-color: #FFF;
+  border-radius: 10px;
+}
+
 .popup__close{
   position: absolute;
   top: -45px;

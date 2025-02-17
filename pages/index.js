@@ -67,6 +67,14 @@ const popupWithFormAdd = new PopupWithForm({
     popupWithFormAdd.close();
   }
 }, ".popup_add");
+
+const popupWithFormChangePhoto = new PopupWithForm({
+  handleFormSubmit: (data) => {
+    userInfo.setUserInfo(data);
+    popupWithFormEdit.close();
+  }
+}, ".popup_edit");
+
 popupWithFormEdit.setEventListeners();
 popupWithFormAdd.setEventListeners();
 popupWithImage.setEventListeners();
