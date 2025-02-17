@@ -48,3 +48,4 @@ export const editButton = document.querySelector(".profile__edit-button");
 export const addButton = document.querySelector(".profile__add-image");
 
 export const profilePhoto = document.querySelector(".profile__image");
+export const containerPhoto = document.querySelector(".profile__container");

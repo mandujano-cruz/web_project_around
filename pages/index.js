@@ -5,7 +5,8 @@ import {
   jobInput,
   editButton,
   addButton,
-  profilePhoto
+  profilePhoto,
+  containerPhoto
 } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -79,7 +80,7 @@ const popupWithFormChangePhoto = new PopupWithForm({
     profilePhoto.src = data.photo;
     popupWithFormChangePhoto.close();
   }
-}, ".popup_edit");
+}, ".popup_photo");
 
 popupWithFormEdit.setEventListeners();
 popupWithFormAdd.setEventListeners();
@@ -103,4 +104,8 @@ editButton.addEventListener("click", () => {
 
 addButton.addEventListener("click", () => {
   popupWithFormAdd.open();
-})
+});
+
+containerPhoto.addEventListener("click", () => {
+  popupWithFormChangePhoto.open();
+});
