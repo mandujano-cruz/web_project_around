@@ -37,4 +37,9 @@ export default class PopupWithForm extends Popup {
     const validateProfile = new FormValidator(config, this._formItems);
     validateProfile.enableValidation();
   }
+
+  renderLoading (isLoading, loadingText = "Guardando...", defaultText = "Guardar") {
+    const submitButton = this._form.querySelector(config.submitButtonSelector);
+    submitButton.textContent = isLoading ? loadingText : defaultText;
+  }
 }

@@ -1,11 +1,9 @@
-import { 
-  initialCards,
+import {
   cardList,
   nameInput, 
   jobInput,
   editButton,
   addButton,
-  profilePhoto,
   containerPhoto
 } from "../utils/constants.js";
 import Card from "../components/Card.js";
@@ -23,13 +21,6 @@ const api = new Api({
     "Content-Type": "application/json"
   }
 });
-
-// api.getInitialCards("cards/").then(data => {
-//   data.forEach(item =>  {
-//     const cards = item;
-//   });
-// });
-// console.log(cards);
 
 api.getInitialCards("cards/")
   .then((items) => {
@@ -58,24 +49,6 @@ api.getInitialCards("cards/")
     section.renderer();
   });
 
-// const section = new Section({
-//   items: api.getInitialCards("cards/"),
-//   renderer: (item) => {
-//     const card = new Card(item, "#card-template", (name, link) => {
-//       popupWithImage.open(name, link);
-//     }, (evt) => {
-//       popupWithConfirmation.open();
-//       popupWithConfirmation.setConfirmDelete(() => {
-//         evt.target.closest(".card").remove();
-//       })
-//     });
-//     const cardElement = card.generateCard();
-//     cardList.append(cardElement);
-//   }
-// }, ".elements");
-// section.renderer();
-
-
 const popupWithImage = new PopupWithImage(".popup_image");
 
 const popupWithConfirmation = new PopupWithConfirmation(".popup_delete");
@@ -91,12 +64,14 @@ api.getUserInfo("users/me")
 
 const popupWithFormEdit = new PopupWithForm({
   handleFormSubmit: (data) => {
+    popupWithFormEdit.renderLoading(true);
     console.log(data);
     api.setProfile("users/me", data)
       .then(() => {
         userInfo.setUserInfo(data);
         popupWithFormEdit.close();
-      });
+      })
+      .finally(() => popupWithFormEdit.renderLoading(false));
   }
 }, ".popup_edit");
 
@@ -138,12 +113,14 @@ const popupWithFormAdd = new PopupWithForm({
 
 const popupWithFormChangePhoto = new PopupWithForm({
   handleFormSubmit: (data) => {
+    popupWithFormChangePhoto.renderLoading(true);
     console.log(data);
     api.setProfile("users/me/avatar", data)
     .then(() => {
       userInfo.setUserInfo(data);
       popupWithFormChangePhoto.close();
-    });
+    })
+    .finally(() => popupWithFormChangePhoto.renderLoading(false));
   }
 }, ".popup_photo");
 
