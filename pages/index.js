@@ -38,10 +38,11 @@ api.getInitialCards("cards/")
       renderer: (item) => {
         const card = new Card(item, "#card-template", (name, link) => {
           popupWithImage.open(name, link);
-        }, (evt) => {
+        }, (evt, _id) => {
           popupWithConfirmation.open();
           popupWithConfirmation.setConfirmDelete(() => {
             evt.target.closest(".card").remove();
+            api.deleteCard("cards/", _id);
           });
         }, (_id, isLiked) => {
           api.toggleLike("cards/", _id, !isLiked)
@@ -115,10 +116,11 @@ const popupWithFormAdd = new PopupWithForm({
       .then((items) => {
         const card = new Card(items, "#card-template", (name, link) => {
           popupWithImage.open(name, link);
-        },  (evt) => {
+        },  (evt, _id) => {
           popupWithConfirmation.open();
           popupWithConfirmation.setConfirmDelete(() => {
             evt.target.closest(".card").remove();
+            api.deleteCard("cards/", _id);
           })
         }, (_id, isLiked) => {
           api.toggleLike("cards/", _id, !isLiked)
