@@ -28,7 +28,7 @@ export default class Api {
     })
       .then(this._handleResponse)
       .then((result) => {
-        console.log(result);
+        return result;
       })
       .catch((err) => console.log(err));
   }
@@ -40,11 +40,13 @@ export default class Api {
       body: JSON.stringify({
         name: data.name,
         about: data.about,
+        avatar: data.avatar,
       })
     })
       .then(this._handleResponse)
       .then((result) => {
         console.log(result);
+        // return result;
       })
       .catch((err) => console.log(err));
   }
@@ -59,9 +61,9 @@ export default class Api {
       })
     })
       .then(this._handleResponse)
-      .then((result) => {
-        console.log(result);
-      })
+      // .then((result) => {
+      //   console.log(result);
+      // })
       .catch((err) => console.log(err));
   }
 

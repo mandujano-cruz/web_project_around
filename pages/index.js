@@ -73,15 +73,26 @@ const popupWithImage = new PopupWithImage(".popup_image");
 
 const popupWithConfirmation = new PopupWithConfirmation(".popup_delete");
 
+api.getUserInfo("users/me")
+  .then((data) => {
+    userInfo.setUserInfo({
+      name: data.name,
+      about: data.about,
+      avatar: data.avatar
+    });
+  });
 
 const popupWithFormEdit = new PopupWithForm({
   handleFormSubmit: (data) => {
-    userInfo.setUserInfo(data);
-    popupWithFormEdit.close();
+    console.log(data);
+    api.setProfile("users/me", data)
+      .then(() => {
+        userInfo.setUserInfo(data);
+        popupWithFormEdit.close();
+      });
   }
 }, ".popup_edit");
 
-// api.addCard("cards/", )
 
 const addCard = new Section({
   items: [],
@@ -114,8 +125,12 @@ const popupWithFormAdd = new PopupWithForm({
 
 const popupWithFormChangePhoto = new PopupWithForm({
   handleFormSubmit: (data) => {
-    profilePhoto.src = data.photo;
-    popupWithFormChangePhoto.close();
+    console.log(data);
+    api.setProfile("users/me/avatar", data)
+    .then(() => {
+      userInfo.setUserInfo(data);
+      popupWithFormChangePhoto.close();
+    });
   }
 }, ".popup_photo");
 
@@ -128,14 +143,15 @@ popupWithFormChangePhoto.setEventListeners();
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
-  jobSelector: ".profile__about-me"
+  jobSelector: ".profile__about-me",
+  photoSelector: ".profile__image"
 });
 
 
 editButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.name;
-  jobInput.value = userData.job;
+  jobInput.value = userData.about;
   popupWithFormEdit.open();
 });
 
