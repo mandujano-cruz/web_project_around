@@ -14,24 +14,59 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
+import Api from "../components/Api.js"
 
-
-const section = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const card = new Card(item, "#card-template", (name, link) => {
-      popupWithImage.open(name, link);
-    }, (evt) => {
-      popupWithConfirmation.open();
-      popupWithConfirmation.setConfirmDelete(() => {
-        evt.target.closest(".card").remove();
-      })
-    });
-    const cardElement = card.generateCard();
-    cardList.append(cardElement);
+const api = new Api({
+  baseUrl: "https://around-api.es.tripleten-services.com/v1/",
+  headers: {
+    authorization: "f79f57e0-6adb-472c-835e-8925770b15f2",
+    "Content-Type": "application/json"
   }
-}, ".elements");
-section.renderer();
+});
+
+// api.getInitialCards("cards/").then(data => {
+//   data.forEach(item =>  {
+//     const cards = item;
+//   });
+// });
+// console.log(cards);
+
+api.getInitialCards("cards/")
+  .then((items) => {
+    const section = new Section({
+      items: items.flat(),
+      renderer: (item) => {
+        const card = new Card(item, "#card-template", (name, link) => {
+          popupWithImage.open(name, link);
+        }, (evt) => {
+          popupWithConfirmation.open();
+          popupWithConfirmation.setConfirmDelete(() => {
+            evt.target.closest(".card").remove();
+          })
+        });
+        const cardElement = card.generateCard();
+        cardList.append(cardElement);
+      }
+    }, ".elements");
+    section.renderer();
+  });
+
+// const section = new Section({
+//   items: api.getInitialCards("cards/"),
+//   renderer: (item) => {
+//     const card = new Card(item, "#card-template", (name, link) => {
+//       popupWithImage.open(name, link);
+//     }, (evt) => {
+//       popupWithConfirmation.open();
+//       popupWithConfirmation.setConfirmDelete(() => {
+//         evt.target.closest(".card").remove();
+//       })
+//     });
+//     const cardElement = card.generateCard();
+//     cardList.append(cardElement);
+//   }
+// }, ".elements");
+// section.renderer();
 
 
 const popupWithImage = new PopupWithImage(".popup_image");
@@ -46,6 +81,7 @@ const popupWithFormEdit = new PopupWithForm({
   }
 }, ".popup_edit");
 
+// api.addCard("cards/", )
 
 const addCard = new Section({
   items: [],
@@ -58,6 +94,7 @@ const addCard = new Section({
 
 const popupWithFormAdd = new PopupWithForm({
   handleFormSubmit: (data) => {
+    api.addCard("cards/", data);
     const card = new Card({
       name: data.title, 
       link: data.link
