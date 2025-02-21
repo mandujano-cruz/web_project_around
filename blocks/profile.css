@@ -19,6 +19,7 @@
   border-radius: 100%;
   margin-right: 30px;
   background-color: #C4C4C4;
+  object-fit: cover;
 }
 
 .profile__container:hover .profile__image{
