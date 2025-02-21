@@ -42,7 +42,13 @@ api.getInitialCards("cards/")
           popupWithConfirmation.open();
           popupWithConfirmation.setConfirmDelete(() => {
             evt.target.closest(".card").remove();
-          })
+          });
+        }, (_id, isLiked) => {
+          api.toggleLike("cards/", _id, !isLiked)
+            .then((data) => {
+              card._isLiked = data.isLiked;
+              card._updateLikeView();
+            });
         });
         const cardElement = card.generateCard();
         cardList.append(cardElement);
@@ -97,7 +103,7 @@ const popupWithFormEdit = new PopupWithForm({
 const addCard = new Section({
   items: [],
   renderer: (item) => {
-    const card = new Card(item, "#card-template", handleCardClick, handleDeleteCard);
+    const card = new Card(item, "#card-template", handleCardClick, handleDeleteCard, handleLikeToggle);
     addCard.addItem(card.generateCard());
   }
 }, ".elements");

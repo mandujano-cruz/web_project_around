@@ -46,7 +46,6 @@ export default class Api {
       .then(this._handleResponse)
       .then((result) => {
         console.log(result);
-        // return result;
       })
       .catch((err) => console.log(err));
   }
@@ -61,19 +60,22 @@ export default class Api {
       })
     })
       .then(this._handleResponse)
-      // .then((result) => {
-      //   console.log(result);
-      // })
       .catch((err) => console.log(err));
   }
 
-
+  toggleLike(endpoint, cardId, isLiked) {
+    const method = isLiked ? "PUT" : "DELETE";
+    return fetch(`${this._baseUrl}${endpoint}${cardId}/likes`, {
+      method: method,
+      headers: this._headers,
+      body: JSON.stringify({
+        isLiked: isLiked,
+      })
+    })
+      .then(this._handleResponse)
+      .then((result) => {
+        return result
+      })
+      .catch((err) => console.log(err));    
+  }
 }
-
-// const api = new Api({
-//   baseUrl: "https://around-api.es.tripleten-services.com/v1/",
-//   headers: {
-//     authorization: "f79f57e0-6adb-472c-835e-8925770b15f2",
-//     "Content-Type": "application/json"
-//   }
-// });
