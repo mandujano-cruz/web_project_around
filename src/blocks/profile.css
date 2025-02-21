@@ -26,11 +26,11 @@
   opacity: 0.2;
 }
 
-.profile__container:hover .profile__image_edit{
+.profile__container:hover .profile__image-edit{
   opacity: 1;
 }
 
-.profile__image_edit {
+.profile__image-edit {
   position: absolute;
   width: 26px;
   height: 26px;
