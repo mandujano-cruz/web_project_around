@@ -49,10 +49,6 @@ api.getInitialCards("cards/")
     section.renderer();
   });
 
-const popupWithImage = new PopupWithImage(".popup_image");
-
-const popupWithConfirmation = new PopupWithConfirmation(".popup_delete");
-
 api.getUserInfo("users/me")
   .then((data) => {
     userInfo.setUserInfo({
@@ -62,6 +58,8 @@ api.getUserInfo("users/me")
     });
   });
 
+const popupWithImage = new PopupWithImage(".popup_image");
+const popupWithConfirmation = new PopupWithConfirmation(".popup_delete");
 const popupWithFormEdit = new PopupWithForm({
   handleFormSubmit: (data) => {
     popupWithFormEdit.renderLoading(true);
@@ -74,16 +72,6 @@ const popupWithFormEdit = new PopupWithForm({
       .finally(() => popupWithFormEdit.renderLoading(false));
   }
 }, ".popup_edit");
-
-
-const addCard = new Section({
-  items: [],
-  renderer: (item) => {
-    const card = new Card(item, "#card-template", handleCardClick, handleDeleteCard, handleLikeToggle);
-    addCard.addItem(card.generateCard());
-  }
-}, ".elements");
-
 
 const popupWithFormAdd = new PopupWithForm({
   handleFormSubmit: (data) => {
@@ -123,6 +111,14 @@ const popupWithFormChangePhoto = new PopupWithForm({
     .finally(() => popupWithFormChangePhoto.renderLoading(false));
   }
 }, ".popup_photo");
+
+const addCard = new Section({
+  items: [],
+  renderer: (item) => {
+    const card = new Card(item, "#card-template", handleCardClick, handleDeleteCard, handleLikeToggle);
+    addCard.addItem(card.generateCard());
+  }
+}, ".elements");
 
 popupWithFormEdit.setEventListeners();
 popupWithFormAdd.setEventListeners();
