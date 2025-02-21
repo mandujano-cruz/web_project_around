@@ -11,4 +11,6 @@ Dentro de la organización del código, se dividió las funciones en clases para
 
 Se aplican términos como herencia, encapsulación y desestructuración.
 
+La página tiene contacto con un servidor que es donde interactua para mostrar la información que se añada, elimine o modifique dependiendo el caso.
+
 Para consultar la página web, ingresa al siguiente enlace: https://mandujano-cruz.github.io/web_project_around/
