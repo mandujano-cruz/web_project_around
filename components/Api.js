@@ -60,6 +60,9 @@ export default class Api {
       })
     })
       .then(this._handleResponse)
+      .then((result) => {
+        return result
+      })
       .catch((err) => console.log(err));
   }
 
@@ -77,5 +80,14 @@ export default class Api {
         return result
       })
       .catch((err) => console.log(err));    
+  }
+
+  deleteCard (endpoint, cardId) {
+    return fetch(`${this._baseUrl}${endpoint}${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
+    })
+      .then(this._handleResponse)
+      .catch((err) => console.log(err));
   }
 }

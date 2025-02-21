@@ -111,21 +111,26 @@ const addCard = new Section({
 
 const popupWithFormAdd = new PopupWithForm({
   handleFormSubmit: (data) => {
-    api.addCard("cards/", data);
-    const card = new Card({
-      name: data.title, 
-      link: data.link
-    }, "#card-template", (name, link) => {
-      popupWithImage.open(name, link);
-    },  (evt) => {
-      popupWithConfirmation.open();
-      popupWithConfirmation.setConfirmDelete(() => {
-        evt.target.closest(".card").remove();
+    api.addCard("cards/", data)
+      .then((items) => {
+        const card = new Card(items, "#card-template", (name, link) => {
+          popupWithImage.open(name, link);
+        },  (evt) => {
+          popupWithConfirmation.open();
+          popupWithConfirmation.setConfirmDelete(() => {
+            evt.target.closest(".card").remove();
+          })
+        }, (_id, isLiked) => {
+          api.toggleLike("cards/", _id, !isLiked)
+            .then((data) => {
+              card._isLiked = data.isLiked;
+              card._updateLikeView();
+            });
+        });
+        const cardElement = card.generateCard();
+        addCard.addItem(cardElement);
+        popupWithFormAdd.close();
       })
-    });
-    const cardElement = card.generateCard();
-    addCard.addItem(cardElement);
-    popupWithFormAdd.close();
   }
 }, ".popup_add");
 
