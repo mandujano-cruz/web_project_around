@@ -120,19 +120,17 @@ const addCard = new Section({
   }
 }, ".elements");
 
-popupWithFormEdit.setEventListeners();
-popupWithFormAdd.setEventListeners();
-popupWithImage.setEventListeners();
-popupWithConfirmation.setEventListeners();
-popupWithFormChangePhoto.setEventListeners();
-
-
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
   jobSelector: ".profile__about-me",
   photoSelector: ".profile__image"
 });
 
+popupWithFormEdit.setEventListeners();
+popupWithFormAdd.setEventListeners();
+popupWithImage.setEventListeners();
+popupWithConfirmation.setEventListeners();
+popupWithFormChangePhoto.setEventListeners();
 
 editButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
